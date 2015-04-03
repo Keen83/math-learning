@@ -1,0 +1,10 @@
+{
+  "name": "math-learning",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Learn math for children",
+  "author": "Olexandr Nikolaevsky <kanary@inbox.ru>",
+  "dependencies": {
+    "express": "3.2.4"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "math-learning",
+  "main": "index.js",
+  "version": "0.0.1",
+  "description": "Learn math for children",
+  "moduleType": [
+    "amd",
+    "node"
+  ],
+  "keywords": [
+    "math",
+    "child",
+    "children"
+  ],
+  "authors": [
+    "kanary@inbox.ru"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angularjs": "~1.3.15"
+  }
+}
