@@ -1,10 +1,10 @@
 /*jslint node: true */
 'use strict';
 
-var module = ng.module('app',[
+var module = angular.module('math',[
     'ngRoute',
-    'app.controllers',
-    'app.directives'
+    'math.controllers',
+    'math.directives'
 ]);
 
 module.run(['$location', '$rootScope',

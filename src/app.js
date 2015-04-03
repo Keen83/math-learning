@@ -10,7 +10,7 @@ var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-app.use(express.static(path.join(__dirname, 'client_app')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.get('/love', function (req, res) {
 	console.log("New request to love at " + new Date());
