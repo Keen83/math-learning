@@ -1,4 +1,4 @@
 /*jslint node: true */
 'use strict';
 
-var module = angular.module('math.controllers',[]);
+var ctrlModule = angular.module('math.controllers', []);
