@@ -9,7 +9,7 @@ var module = angular.module('math', [
 
 module.config(['$locationProvider',
 	function($locationProvider) {
-		$locationProvider.html5Mode(true);
+		$locationProvider.html5Mode(false);
 	}]);
 
 module.run(['$location', '$rootScope',

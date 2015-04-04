@@ -1,5 +1,6 @@
 var express = require('express');
 var routes = require('./routes');
+var loves = require('./routes/love');
 var path = require('path');
 
 // Constants
@@ -12,10 +13,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
-app.get('/love', function (req, res) {
-	console.log("New request to love at " + new Date());
-	res.send("Love you!");
-});
+app.get('/love', loves.index);
 
 app.get('/', routes.index);
 

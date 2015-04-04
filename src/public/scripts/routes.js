@@ -11,6 +11,12 @@ app.config(['$routeProvider',
             controller: 'mainCtrl'
         });
 
+        $routeProvider.when('/love', {
+            title: "Love you",
+            templateUrl: 'public/templates/controllers/loveCtrl.html',
+            controller: 'loveCtrl'
+        });
+
         $routeProvider.otherwise({
             redirectTo: '/'
         });
