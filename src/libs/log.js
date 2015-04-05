@@ -10,6 +10,11 @@ function getLogger(module) {
 				timestamp: true,
 				colorize: true,
 				label: path
+			}),
+			new(winston.transports.File)({
+				filename: 'mylogs.log',
+				timestamp: true,
+				level: 'warn'
 			})
 		]
 	});
