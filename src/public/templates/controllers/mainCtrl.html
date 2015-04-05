@@ -1,1 +1,29 @@
-<div>Hello, {{name}}</div>
+<div tabindex=0 ng-keypress="alert('works')" class="container">
+	<span>{{x1}} + {{x2}} = {{result}}</span>
+	<div class='row'>
+		<div class="col-md-3 col-sm-3">
+			<div ng-repeat='no1 in x1_nums'>
+				<img  class='col-md-4 col-sm-4 num_img' src='public/imgs/Dyno/{{no1}}.png' />
+			</div>
+		</div>
+		<div class="col-md-1 col-sm-1">
+			<img class='num_img' src='public/imgs/Dyno/{{sign}}.png' />
+		</div>
+		<div class="col-md-3 col-sm-3">
+			<div ng-repeat='no2 in x2_nums'>
+				<img class='col-md-4 col-sm-4 num_img' src='public/imgs/Dyno/{{no2}}.png' />
+			</div>
+			
+		</div>
+		<span class="col-md-1 col-sm-1">
+			<img class='num_img' src='public/imgs/Dyno/equals.png' />
+		</span>
+		<div class="col-md-3 col-sm-3">
+			<div ng-repeat='no in res_nums'>
+				<img class='col-md-4 col-sm-4 num_img' src='public/imgs/Dyno/{{no}}.png' />
+				
+			</div>
+		</div>
+	</div>
+	<div ng-show='hasResult' ng-class="{positive: positive, negative: !positive}"></div>
+</div>
