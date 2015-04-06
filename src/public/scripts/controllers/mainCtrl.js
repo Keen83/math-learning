@@ -3,12 +3,12 @@
 
 var ctrlModule = angular.module('math.controllers');
 
-ctrlModule.controller('mainCtrl', ['$scope',
-	function($scope) {
+ctrlModule.controller('mainCtrl', ['$scope', '$http',
+	function($scope, $http) {
 		$scope.name = "world";
 		$scope.result = 0;
 		var expResult = 5;
-		var maxNumber = 120;
+		var maxNumber = 20;
 
 		$(document).keypress(function(e) {
 			console.log("Key code: " + e.keyCode);
@@ -28,19 +28,26 @@ ctrlModule.controller('mainCtrl', ['$scope',
 
 		});
 
-		function removeLastChar(){
-			$scope.$apply($scope.result = $scope.result.slice(0, -1));
+		function removeLastChar() {
+			$scope.$apply(function() {
+				$scope.result = $scope.result.slice(0, -1);
+				$scope.res_nums = $scope.result.toString();
+			});
 		}
 
 		function updateResult(keyCode) {
 			var keyValue = String.fromCharCode(keyCode);
 			console.log("Key value: " + keyValue);
 
-			if (keyValue < '0' && keyValue > '9') {
+			if (keyValue < '0' && keyValue > '9' ) {
 				return;
 			}
 
-			$scope.$apply(function(){
+			if ($scope.result.length >= 3){
+				return;
+			}
+
+			$scope.$apply(function() {
 				$scope.result += keyValue;
 				$scope.res_nums = $scope.result.toString();
 			});
@@ -78,7 +85,7 @@ ctrlModule.controller('mainCtrl', ['$scope',
 			$scope.$apply(setValues(x1, x2, "", "plus"));
 		}
 
-		function setValues(x1, x2, result, sign){
+		function setValues(x1, x2, result, sign) {
 			$scope.x1 = x1;
 			$scope.x1_nums = x1.toString();
 			$scope.x2 = x2;
@@ -93,5 +100,6 @@ ctrlModule.controller('mainCtrl', ['$scope',
 		}
 
 		initAddExpr();
+		$http.post('/log', {msg: "Math requested"});
 	}
 ]);
