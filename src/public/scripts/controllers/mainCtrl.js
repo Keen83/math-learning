@@ -9,11 +9,21 @@ ctrlModule.controller('mainCtrl', ['$scope', '$http',
 		$scope.result = 0;
 		var expResult = 5;
 		var maxNumber = 20;
+		var emptyChar = 'b';
+
+		$scope.btnsList = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'e', 'r']
 
 		$(document).keypress(function(e) {
 			console.log("Key code: " + e.keyCode);
 			if (e.keyCode >= 48 && e.keyCode <= 57) {
-				updateResult(e.keyCode);
+				var keyValue = String.fromCharCode(e.keyCode);
+				
+				console.log("Key value: " + keyValue);
+
+				if (isKeyValueCorrect(keyValue)) {
+					$scope.$apply(updateResult(keyValue));
+				}
+				
 			}
 		});
 
@@ -23,34 +33,47 @@ ctrlModule.controller('mainCtrl', ['$scope', '$http',
 				checkValue();
 			}
 			if (e.keyCode == 8) {
-				removeLastChar();
+				$scope.$apply(removeLastChar);
 			}
 
 		});
 
-		function removeLastChar() {
-			$scope.$apply(function() {
-				$scope.result = $scope.result.slice(0, -1);
-				$scope.res_nums = $scope.result.toString();
-			});
+		$scope.onNumberEntered = function(number) {
+			if (number == 'e') {
+				checkValue();
+				return;
+			}
+			if (number == 'r') {
+				removeLastChar();
+				return;
+			}
+			updateResult(number);
+		};
+
+		function getMaxLength() {
+			return maxNumber.toString.length;
 		}
 
-		function updateResult(keyCode) {
-			var keyValue = String.fromCharCode(keyCode);
-			console.log("Key value: " + keyValue);
+		function removeLastChar() {
+			$scope.result = $scope.result.slice(0, -1);
+			$scope.res_nums = getResultString();
+		}
 
-			if (keyValue < '0' && keyValue > '9' ) {
-				return;
+		function updateResult(keyValue) {
+			$scope.result += keyValue;
+			$scope.res_nums = getResultString();
+		}
+
+		function isKeyValueCorrect(keyValue) {
+			if (keyValue < '0' && keyValue > '9') {
+				return false;
 			}
 
-			if ($scope.result.length >= 3){
-				return;
+			if ($scope.result.length >= expResult.toString().length) {
+				return false;
 			}
 
-			$scope.$apply(function() {
-				$scope.result += keyValue;
-				$scope.res_nums = $scope.result.toString();
-			});
+			return true;
 		}
 
 		function checkValue() {
@@ -91,8 +114,17 @@ ctrlModule.controller('mainCtrl', ['$scope', '$http',
 			$scope.x2 = x2;
 			$scope.x2_nums = x2.toString();
 			$scope.result = result;
-			$scope.res_nums = result.toString();
+			$scope.res_nums = getResultString();
 			$scope.sign = sign;
+		}
+
+		function getResultString() {
+			var res = $scope.result.toString();
+			var expLength = expResult.toString().length;
+			while (res.length < expLength) {
+				res += emptyChar;
+			}
+			return res;
 		}
 
 		function getRandomInt(min, max) {
@@ -100,6 +132,8 @@ ctrlModule.controller('mainCtrl', ['$scope', '$http',
 		}
 
 		initAddExpr();
-		$http.post('/log', {msg: "Math requested"});
+		$http.post('/log', {
+			msg: "Math requested"
+		});
 	}
 ]);

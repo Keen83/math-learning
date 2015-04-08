@@ -1,29 +1,34 @@
 <div tabindex=0 ng-keypress="alert('works')">
 	<span>{{x1}} + {{x2}} = {{result}}</span>
 	<div class='row'>
-		<div class="col-md-3 col-sm-3 col-lg-3">
-			<div ng-repeat='no1 in x1_nums track by $index'>
-				<img  class='col-md-4 col-sm-4 num_img' ng-src='public/imgs/Dyno/{{no1}}.png' />
-			</div>
-		</div>
-		<div class="col-md-1 col-sm-1 col-lg-1">
-			<img class='num_img' ng-src='public/imgs/Dyno/{{sign}}.png' />
-		</div>
-		<div class="col-md-3 col-sm-3 col-lg-3">
-			<div ng-repeat='no2 in x2_nums track by $index'>
-				<img class='col-md-4 col-sm-4 num_img' ng-src='public/imgs/Dyno/{{no2}}.png' />
-			</div>
-			
-		</div>
-		<span class="col-md-1 col-sm-1 col-lg-1">
-			<img class='num_img' ng-src='public/imgs/Dyno/equals.png' />
-		</span>
-		<div class="col-md-3 col-sm-3 col-lg-3">
-			<div ng-repeat='no in res_nums track by $index'>
-				<img class='col-md-4 col-sm-4 num_img' ng-src='public/imgs/Dyno/{{no}}.png' />
-				
+		<div class='div-center'>
+			<div class='minimize-div'>
+				<span ng-repeat='no1 in x1_nums track by $index'>
+					<img  class='num_img' ng-src='public/imgs/Dyno/{{no1}}.png' />
+				</span>
+				<span>
+					<img class='num_img' ng-src='public/imgs/Dyno/{{sign}}.png' />
+				</span>
+				<span ng-repeat='no2 in x2_nums track by $index'>
+					<img class='num_img' ng-src='public/imgs/Dyno/{{no2}}.png' />
+				</span>
+				<span>
+					<img class='num_img' ng-src='public/imgs/Dyno/equals.png' />
+				</span>
+				<span ng-repeat='no in res_nums track by $index'>
+					<img class='num_img' ng-src='public/imgs/Dyno/{{no}}.png' />
+				</span>
 			</div>
 		</div>
 	</div>
-	<div ng-show='hasResult' ng-class="{positive: positive, negative: !positive}"></div>
+	<div class='row' ng-show='hasResult' ng-class="{positive: positive, negative: !positive}"></div>
+	<div class='footer' id='footer'>
+		
+			<div class="col-lg-1" ng-repeat='no in btnsList track by $index'>
+				<button ng-click='onNumberEntered(no)' class='bnt-img-holder img-thumbnail'>
+				<img ng-src="public/imgs/Dyno/{{no}}.png" alt="{{no}}" class=" btn_img">
+				</button>
+			</div>
+		
+	</div>
 </div>

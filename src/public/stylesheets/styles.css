@@ -3,14 +3,45 @@ img.b_img {
 	max-height: 600px;
 }
 
+.div-center {
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.minimize-div {
+	display: inline-block;
+}
+
 img.num_img {
-	max-width:100%; 
-	max-height:100%;
+	max-width:150px; 
+	max-height:200px;
 	margin-left: 0;
 	margin-right: 0;
 	display: inline;
 	padding-left: 0;
 	padding-right: 0;
+}
+
+img.btn_img {
+	max-width: 68px;
+	max-height:68px;
+	margin: 0 10px;
+}
+
+.footer {
+	position: fixed; 
+	bottom: 0; 
+}
+
+.bnt-img-holder {
+	max-width:70px; 
+	max-height:70px;
+	width:70px; 
+	height:70px;
+	margin: 0;
+	padding: 0;
+	background-color: red;
 }
 
 .positive {
