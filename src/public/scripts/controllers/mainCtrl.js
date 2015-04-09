@@ -8,10 +8,10 @@ ctrlModule.controller('mainCtrl', ['$scope', '$http',
 		$scope.name = "world";
 		$scope.result = 0;
 		var expResult = 5;
-		var maxNumber = 20;
+		var maxNumber = 999;
 		var emptyChar = 'b';
 
-		$scope.btnsList = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'e', 'r']
+		$scope.btnsList = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'e', 'r']
 
 		$(document).keypress(function(e) {
 			console.log("Key code: " + e.keyCode);

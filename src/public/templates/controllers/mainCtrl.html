@@ -1,5 +1,4 @@
-<div tabindex=0 ng-keypress="alert('works')">
-	<span>{{x1}} + {{x2}} = {{result}}</span>
+<div tabindex=0 ng-keypress="alert('works')">	
 	<div class='row'>
 		<div class='div-center'>
 			<div class='minimize-div'>
@@ -22,11 +21,10 @@
 		</div>
 	</div>
 	<div class='row' ng-show='hasResult' ng-class="{positive: positive, negative: !positive}"></div>
-	<div class='footer' id='footer'>
-		
-			<div class="col-lg-1" ng-repeat='no in btnsList track by $index'>
+	<div class='footer' id='footer'>		
+			<div class="col-lg-1 col-md-1 col-sm-1" ng-repeat='no in btnsList track by $index'>
 				<button ng-click='onNumberEntered(no)' class='bnt-img-holder img-thumbnail'>
-				<img ng-src="public/imgs/Dyno/{{no}}.png" alt="{{no}}" class=" btn_img">
+				<img ng-src="public/imgs/Dyno/{{no}}.png" alt="{{no}}" class=" btn_img">	
 				</button>
 			</div>
 		
