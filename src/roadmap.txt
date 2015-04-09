@@ -1,0 +1,8 @@
+Show correct/incorrect numbers
+Save result to db
+Add subtraction, multiplication, division
+Add levels system
+Show video on level up
+Add better design
+Add auth
+Upload to docker
