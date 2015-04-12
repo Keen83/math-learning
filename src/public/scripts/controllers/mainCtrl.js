@@ -8,7 +8,7 @@ ctrlModule.controller('mainCtrl', ['$scope', '$http',
 		$scope.name = "world";
 		$scope.result = 0;
 		var expResult = 5;
-		var maxNumber = 999;
+		var maxNumber = 20;
 		var emptyChar = 'b';
 
 		$scope.btnsList = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'e', 'r']
