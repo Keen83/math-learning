@@ -14,7 +14,7 @@ img.b_img {
 }
 
 img.num_img {
-	max-width:150px; 
+	max-width:100px; 
 	max-height:200px;
 	margin-left: 0;
 	margin-right: 0;
@@ -123,7 +123,7 @@ img.num_img {
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1660px) { 
 	img.num_img {
-		max-width:150px; 
+		max-width:100px; 
 		max-height:200px;
 		margin-left: 0;
 		margin-right: 0;

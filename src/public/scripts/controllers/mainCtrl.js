@@ -8,7 +8,7 @@ ctrlModule.controller('mainCtrl', ['$scope', '$http',
 		$scope.name = "world";
 		$scope.result = 0;
 		var expResult = 5;
-		var maxNumber = 20;
+		var maxNumber = 999;
 		var emptyChar = 'b';
 
 		$scope.btnsList = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'e', 'r'];
@@ -18,12 +18,7 @@ ctrlModule.controller('mainCtrl', ['$scope', '$http',
 			if (e.keyCode >= 48 && e.keyCode <= 57) {
 				var keyValue = String.fromCharCode(e.keyCode);
 				
-				console.log("Key value: " + keyValue);
-
-				if (isKeyValueCorrect(keyValue)) {
-					$scope.$apply(updateResult(keyValue));
-				}
-				
+				processKey(keyValue);
 			}
 		});
 
@@ -32,11 +27,21 @@ ctrlModule.controller('mainCtrl', ['$scope', '$http',
 			if (e.keyCode == 13) {
 				checkValue();
 			}
-			if (e.keyCode == 8) {
+			else if (e.keyCode == 8) {
 				$scope.$apply(removeLastChar);
 			}
-
+			else if (e.key) {
+				processKey(e.key);
+			}
 		});
+
+		function processKey(keyValue) {
+			console.log("Key value: " + keyValue);
+
+			if (isKeyValueCorrect(keyValue)) {
+				$scope.$apply(updateResult(keyValue));
+			}
+		}
 
 		$scope.onNumberEntered = function(number) {
 			if (number == 'e') {
