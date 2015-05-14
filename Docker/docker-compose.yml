@@ -1,0 +1,12 @@
+nodedev:
+  build: ./NodeDev  
+  ports:
+   - "3000:3000"
+  volumes:
+   - /home/keen/Projects/Math/src:/webapp
+  links:
+   - mongodev
+mongodev:
+  build: ./MongoDb
+  volumes:
+   - /data/db:/data/db
