@@ -1,0 +1,7 @@
+On Ubuntu
+1. Create folders /data/db that will contain mongodb files
+2. Modify Docker/docker-compose.yml and set correct path to the src folder
+3. Install Docker (https://docs.docker.com/installation/ubuntulinux/#installing-docker-on-ubuntu)
+4. Install Docker-compose (https://docs.docker.com/compose/install/)
+5. Navigate to Docker folder and run $ [sudo] docker-compose up -d
+6. http://localhost:3000

@@ -8,8 +8,7 @@ RUN \
    apt-get install -y mongodb-org
 
 VOLUME ["/data/db"]
-WORKDIR /data
 
 EXPOSE 27017
 
-CMD ["mongo", "mongo-dev"]
+CMD ["mongo", "mongo-dev:27017"]
